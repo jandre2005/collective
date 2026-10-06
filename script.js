@@ -9,7 +9,7 @@ const members = [
     projects: [
       { title: "On working project.", desc: "zzz...", url: "" },
     ],
-    portfolio: "https://yourportfolio.com",
+    portfolio: "https://ricabumubum.vercel.app/",
     github: "https://github.com/habib2005-hatdog",
     linkedin: "https://linkedin.com/",
     email: "yourname@gmail.com"
@@ -26,7 +26,7 @@ const members = [
       { title: "Msuan", desc: "A real-time messaging platform modeled after ChatKool, featuring rooms, direct messages, presence indicators, Built from scratch with WebSocket support.", url: "" },
     ],
     portfolio: "https://habib-mu.vercel.app/",
-    github: "https://github.com/",
+    github: "https://github.com/habib2005-hatdog",
     linkedin: "https://www.linkedin.com/in/nurhabib-hadjisaid-b2b671268/",
     email: "nurhabibhadjisaid@gmail.com"
   },
