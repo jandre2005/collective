@@ -19,7 +19,7 @@ const members = [
   {
     name: "Habib Hadjisaid",
     role: "Full-Stack Dev",
-    image: "images/profile2.jpg",
+    image: "images/profile2.JPG",
     description: "Builds modern full-stack products that feel polished on the frontend and stay reliable on the backend.",
     about: "A developer focused on building reliable, functional, and user-friendly full-stack web applications, turning ideas into practical digital experiences with modern technologies.",
     skills: ["JavaScript", "Java", "Next.js", "Tailwind CSS", "Node,js", "Socket.io", "REST APIs", "mySQL", "MongoDB", "Git", "Linux"],
@@ -35,7 +35,7 @@ const members = [
   {
     name: "Jandre Villanueva",
     role: "Front-End Dev",
-    image: "images/profile1.jpg",
+    image: "images/profile1.JPG",
     description: "Builds responsive, functional, and user-friendly web interfaces.",
     about: "A web designer and developer focused on creating clean, modern, and responsive websites. I enjoy turning ideas into simple and functional digital experiences.",
     skills: ["HTML", "CSS", "JavaScript", "Java", "MySQL", "Git", "Frontend Development", "UI/UX Design"],
