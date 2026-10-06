@@ -12,7 +12,7 @@ const members = [
     portfolio: "https://ricabumubum.vercel.app/",
     github: "https://github.com/habib2005-hatdog",
     linkedin: "https://linkedin.com/",
-    email: "yourname@gmail.com"
+    email: "yourname@gmail.com",
   },
   {
     name: "Habib Hadjisaid",
@@ -28,7 +28,7 @@ const members = [
     portfolio: "https://habib-mu.vercel.app/",
     github: "https://github.com/habib2005-hatdog",
     linkedin: "https://www.linkedin.com/in/nurhabib-hadjisaid-b2b671268/",
-    email: "nurhabibhadjisaid@gmail.com"
+    email: "nurhabibhadjisaid@gmail.com",
   },
   {
     name: "Jandre Villanueva",
@@ -44,7 +44,7 @@ const members = [
     portfolio: "https://jandredev.vercel.app/",
     github: "https://github.com/jandre2005",
     linkedin: "https://www.linkedin.com/in/jandre-villanueva-95945143a/",
-    email: "drevillanueva75@gmail.com"
+    email: "drevillanueva75@gmail.com",
   },
   {
     name: "Denzel Cordovez",
@@ -60,7 +60,7 @@ const members = [
     portfolio: "https://portfolio-eight-roan-gm53i32gx0.vercel.app/",
     github: "https://github.com/maXss-tech",
     linkedin: "https://www.linkedin.com/in/denzel-cordovez",
-    email: "denzelcordovez26@gmail.com"
+    email: "denzelcordovez26@gmail.com",
   },
   {
     name: "Vin Santos",
@@ -75,7 +75,7 @@ const members = [
     portfolio: "https://vin-portfolio-steel.vercel.app/",
     github: "https://github.com/VinLovesCoding",
     linkedin: "https://linkedin.com/",
-    email: "vinstephensantos07@gmail.com"
+    email: "vinstephensantos07@gmail.com",
   }
 ];
 
