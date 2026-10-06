@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Five Minds — a group portfolio of five creators.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Collective — Group Portfolio</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ============ BACKGROUND (glowing blobs) ============ -->
+  <div class="background" aria-hidden="true">
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+  </div>
+
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <a href="#home" class="logo">MIATA</a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#members">Members</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Hamburger button (mobile only) -->
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+
+  <main>
+
+    <!-- ============ HOME ============ -->
+    <section class="hero section" id="home">
+      <div class="hero-content">
+        <h1 class="reveal" style="--d:.1s">FIVE MINDS. <span>ONE SPACE.</span></h1>
+
+        <div class="hero-quote reveal" style="--d:.2s">
+          <p>Creation demands change.</p>
+          <p>Change demands vision.</p>
+          <p class="muted">Five minds. Five visions. One creation.</p>
+        </div>
+
+        <div class="hero-buttons reveal" style="--d:.3s">
+          <a href="#members" class="primary-btn">Meet the Team <span>→</span></a>
+          <a href="#about" class="secondary-btn">About Us</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ MEMBERS ============ -->
+    <section class="members section" id="members">
+      <div class="section-header reveal">
+        <p class="eyebrow">MEMBERS</p>
+        <h2>Meet the Team.</h2>
+        <p class="section-description">Five individuals. Different ideas, skills and perspectives — brought together in one space.</p>
+      </div>
+
+      <!-- Member cards are created by script.js -->
+      <div class="members-grid" id="membersGrid"></div>
+    </section>
+
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about section" id="about">
+      <div class="about-grid">
+        <div class="about-title reveal">
+          <p class="eyebrow">ABOUT</p>
+          <h2>Creation demands<br>evolution.</h2>
+        </div>
+
+        <div class="about-content reveal" style="--d:.1s">
+          <p> </p>
+          <p>Different perspectives. Different strengths. Different ways of creating.</p>
+          <p>Individually, we build with purpose. Together, we create something greater.</p>
+          <p>Five visions. One creation.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact section" id="contact">
+      <div class="contact-content reveal">
+        <p class="eyebrow">CONTACT</p>
+        <h2>Let's connect.</h2>
+        <p>Every creation starts somewhere. Maybe the next one starts with a conversation.</p>
+        <a href="mailto:group@email.com" class="contact-email">group@email.com <span>↗</span></a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <p>© 2026 MIATA</p>
+    <p>Five minds. One space.</p>
+  </footer>
+
+
+  <!-- ============ PROFILE POPUP ============
+       Hidden until a member card is clicked.
+       script.js fills in the empty parts below. -->
+  <div class="portfolio-overlay" id="portfolioOverlay" role="dialog" aria-modal="true" aria-labelledby="portfolioName" aria-hidden="true" inert>
+    <div class="portfolio-container">
+
+      <button class="back-btn" id="closePortfolio">← Back to Members</button>
+
+      <!-- Photo, name, role, short description -->
+      <section class="profile-hero">
+        <div class="profile-avatar-large avatar" id="portfolioAvatar">
+          <img id="portfolioImage" src="" alt="">
+        </div>
+
+        <div class="profile-main">
+          <p class="profile-number" id="portfolioNumber"></p>
+          <h2 id="portfolioName"></h2>
+          <p class="profile-role" id="portfolioRole"></p>
+          <p class="profile-description" id="portfolioDescription"></p>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="portfolio-link" id="personalPortfolio">Visit Personal Portfolio <span>↗</span></a>
+        </div>
+      </section>
+
+      <!-- About me, work, skills, links -->
+      <div class="profile-details">
+        <section class="profile-section">
+          <p class="eyebrow">ABOUT ME</p>
+          <p class="large-text" id="portfolioAbout"></p>
+        </section>
+
+        <section class="profile-section">
+          <p class="eyebrow">SELECTED WORK</p>
+          <div class="projects-grid" id="portfolioProjects"></div>
+        </section>
+
+        <section class="profile-section">
+          <p class="eyebrow">SKILLS</p>
+          <div class="skills" id="portfolioSkills"></div>
+        </section>
+
+        <section class="profile-section">
+          <p class="eyebrow">LINKS</p>
+          <div class="profile-links" id="portfolioLinks"></div>
+        </section>
+
+        <button class="bottom-back-btn" id="bottomBack">← Back to Team</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

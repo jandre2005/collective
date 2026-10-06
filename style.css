@@ -1,0 +1,1106 @@
+:root {
+  --bg: #0a0a0a;
+  --card: #131313;
+  --line: #232323;
+  --txt: #ececec;
+  --mut: #9a9a9a;
+  --dim: #747474;
+  --grad: linear-gradient(120deg, #f4f4f4 0%, #b8b8b8 50%, #7e7e7e 100%);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid #9a9a9a;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+
+/* =====================================================
+   2. ANIMATED BACKGROUND
+===================================================== */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  background: linear-gradient(135deg, #080808, #0d0d0d 50%, #080808);
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: .15;
+  will-change: transform;
+}
+
+.glow-one {
+  width: 520px;
+  height: 520px;
+  background: #555;
+  top: 0;
+  right: -180px;
+  animation: drift 22s ease-in-out infinite alternate;
+}
+
+.glow-two {
+  width: 460px;
+  height: 460px;
+  background: #3a3a3a;
+  bottom: 0;
+  left: -180px;
+  animation: drift 26s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes drift {
+  to { transform: translate(-70px, 60px) scale(1.15); }
+}
+
+
+/* =====================================================
+   3. SHARED STYLES
+===================================================== */
+
+/* Page sections share the same width */
+.section {
+  width: 88%;
+  max-width: 1450px;
+  margin: auto;
+}
+
+/* Small uppercase labels (MEMBERS, ABOUT, ...) */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--dim);
+  font-weight: 500;
+}
+
+.section-header {
+  margin-bottom: 55px;
+}
+
+.section-header h2 {
+  margin-top: 13px;
+  font-size: clamp(40px, 5vw, 70px);
+  font-weight: 500;
+  letter-spacing: -3px;
+}
+
+.section-description {
+  max-width: 500px;
+  margin-top: 15px;
+  color: var(--mut);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Fade-in on scroll (JS adds the "show" class) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+  transition-delay: var(--d, 0s);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* =====================================================
+   4. NAVBAR
+===================================================== */
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 80px;
+  padding: 0 6%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid transparent;
+  transition: height .4s var(--ease), background .4s, border-color .4s;
+}
+
+/* Added by JS after scrolling down */
+.navbar.scrolled {
+  height: 68px;
+  background: rgba(10, 10, 10, .72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(255, 255, 255, .06);
+}
+
+.logo {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links a {
+  position: relative;
+  font-size: 13px;
+  color: var(--mut);
+  transition: color .25s;
+}
+
+/* Underline that grows on hover / active */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: var(--grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s var(--ease);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+/* Hamburger button (only visible on mobile) */
+.menu-btn {
+  display: none;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  position: absolute;
+  left: 7px;
+  width: 22px;
+  height: 1.5px;
+  background: #fff;
+  transition: transform .35s var(--ease), top .35s var(--ease);
+}
+
+.menu-btn span:first-child { top: 13px; }
+.menu-btn span:last-child  { top: 21px; }
+
+/* Turns into an X when open */
+.menu-btn.open span:first-child {
+  top: 17px;
+  transform: rotate(45deg);
+}
+
+.menu-btn.open span:last-child {
+  top: 17px;
+  transform: rotate(-45deg);
+}
+
+
+/* =====================================================
+   5. HERO (HOME)
+===================================================== */
+.hero {
+  min-height: 100vh;
+  padding: 110px 0 80px;
+  display: flex;
+  align-items: center;
+}
+
+.hero h1 {
+  max-width: 1100px;
+  margin-top: 22px;
+  font-size: clamp(60px, 8vw, 125px);
+  line-height: .9;
+  letter-spacing: -5px;
+  font-weight: 500;
+}
+
+/* "ONE SPACE." with the shiny gradient text */
+.hero h1 span {
+  display: block;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 100%;
+  animation: shine 8s ease-in-out infinite alternate;
+}
+
+@keyframes shine {
+  to { background-position: 100% 0; }
+}
+
+.hero-quote {
+  margin-top: 40px;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.65;
+  color: #c6c6c6;
+}
+
+.hero-quote .muted {
+  margin-top: 5px;
+  color: var(--dim);
+  font-weight: 300;
+}
+
+.hero-buttons {
+  margin-top: 38px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+/* Both hero buttons share the same shape */
+.primary-btn,
+.secondary-btn {
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 13px;
+  transition: transform .35s var(--ease), box-shadow .35s, border-color .3s, color .3s;
+}
+
+.primary-btn {
+  background: var(--grad);
+  color: #0c0c0c;
+  font-weight: 500;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, .12);
+}
+
+.primary-btn span {
+  transition: transform .3s var(--ease);
+}
+
+.primary-btn:hover span {
+  transform: translateX(4px);
+}
+
+.secondary-btn {
+  border: 1px solid #303030;
+  color: var(--mut);
+}
+
+.secondary-btn:hover {
+  border-color: #5d5d5d;
+  color: #fff;
+}
+
+
+/* =====================================================
+   6. MEMBERS SECTION
+===================================================== */
+.members {
+  padding: 130px 0 160px;
+}
+
+.members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.card-wrap {
+  flex: 1 1 210px;
+  max-width: 300px;
+}
+
+/* --- Member card --- */
+.member-card {
+  --x: 50%;   /* cursor position, set by JS */
+  --y: 50%;
+  width: 100%;
+  height: 410px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 27px;
+  cursor: pointer;
+  transition: transform .5s var(--ease), border-color .4s, background .4s;
+}
+
+/* Soft light that follows the cursor */
+.member-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(260px circle at var(--x) var(--y), rgba(200, 200, 200, .09), transparent 65%);
+  opacity: 0;
+  transition: opacity .5s;
+  pointer-events: none;
+}
+
+.member-card:hover {
+  transform: translateY(-8px);
+  border-color: #3c3c3c;
+  background: #161616;
+}
+
+.member-card:hover::before {
+  opacity: 1;
+}
+
+/* --- Round photo (used on cards AND in the profile popup) --- */
+.avatar {
+  grid-template: 100% / 100%;
+  position: relative;
+  border-radius: 50%;
+  background: #101010;
+  border: 1px solid #343434;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+}
+
+/* Thin outer ring */
+.avatar::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .05);
+  pointer-events: none;
+  transition: border-color .5s;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 1;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: brightness(.85) saturate(.85);
+  transition: transform .6s var(--ease), filter .5s;
+}
+
+/* Initials shown when the photo is missing (JS sets data-i) */
+.avatar[data-i]::after {
+  content: attr(data-i);
+  position: absolute;
+  font-size: 34px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Card photo size */
+.member-card .avatar {
+  width: 145px;
+  height: 145px;
+  margin-top: 40px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, .45);
+}
+
+.member-card:hover .avatar::before {
+  border-color: rgba(210, 210, 210, .28);
+}
+
+.member-card:hover .avatar img {
+  transform: scale(1.05);
+  filter: brightness(1) saturate(1);
+}
+
+/* --- Name, role and "View Profile" --- */
+.member-info {
+  width: 100%;
+  flex: 1;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.member-info h3 {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -.4px;
+}
+
+.member-info p {
+  margin-top: 4px;
+  color: var(--dim);
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.view-member {
+  margin-top: auto;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  color: var(--dim);
+  font-size: 11px;
+  transition: color .3s, border-color .3s;
+}
+
+.view-member span {
+  transition: transform .35s var(--ease);
+}
+
+.member-card:hover .view-member {
+  color: var(--txt);
+  border-color: #3a3a3a;
+}
+
+.member-card:hover .view-member span {
+  transform: translateX(4px);
+}
+
+
+/* =====================================================
+   7. ABOUT SECTION
+===================================================== */
+.about {
+  padding: 150px 0 180px;
+  border-top: 1px solid #1d1d1d;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+}
+
+.about-title h2 {
+  margin-top: 20px;
+  font-size: clamp(45px, 5vw, 75px);
+  line-height: 1;
+  letter-spacing: -4px;
+  font-weight: 500;
+}
+
+.about-content {
+  padding-top: 30px;
+}
+
+.about-content p {
+  max-width: 580px;
+  margin-bottom: 22px;
+  color: var(--mut);
+  font-size: 17px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+
+/* =====================================================
+   8. CONTACT SECTION
+===================================================== */
+.contact {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #1d1d1d;
+}
+
+.contact-content h2 {
+  margin-top: 10px;
+  font-size: clamp(56px, 8vw, 120px);
+  font-weight: 500;
+  letter-spacing: -6px;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+}
+
+.contact-content > p:not(.eyebrow) {
+  margin-top: 15px;
+  color: var(--dim);
+  font-weight: 300;
+}
+
+.contact-email {
+  margin-top: 40px;
+  padding-bottom: 6px;
+  display: inline-flex;
+  gap: 20px;
+  position: relative;
+  font-size: 17px;
+}
+
+/* Underline that grows on hover */
+.contact-email::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--grad);
+  transform: scaleX(.35);
+  transform-origin: left;
+  transition: transform .5s var(--ease);
+}
+
+.contact-email:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* =====================================================
+   9. FOOTER
+===================================================== */
+footer {
+  width: 88%;
+  max-width: 1450px;
+  min-height: 100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #1d1d1d;
+  color: var(--dim);
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   10. PROFILE POPUP (member portfolio)
+===================================================== */
+
+/* --- Full-screen popup container --- */
+.portfolio-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at 75% 15%, rgba(130, 130, 130, .12), transparent 35%),
+    radial-gradient(circle at 10% 90%, rgba(90, 90, 90, .10), transparent 35%),
+    var(--bg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(24px) scale(.99);
+  transition: opacity .5s var(--ease), transform .5s var(--ease), visibility .5s;
+}
+
+/* Added by JS when a profile is open */
+.portfolio-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.portfolio-container {
+  width: 88%;
+  max-width: 1250px;
+  margin: auto;
+  padding: 50px 0 100px;
+}
+
+/* --- Back buttons --- */
+.back-btn,
+.bottom-back-btn {
+  background: transparent;
+  color: var(--dim);
+  font-size: 12px;
+  cursor: pointer;
+  transition: color .3s, transform .3s var(--ease);
+}
+
+.back-btn:hover,
+.bottom-back-btn:hover {
+  color: #fff;
+  transform: translateX(-4px);
+}
+
+.bottom-back-btn {
+  margin-top: 70px;
+}
+
+/* --- Top part: big photo + name --- */
+.profile-hero {
+  min-height: 650px;
+  padding: 80px 0;
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.profile-avatar-large {
+  width: 390px;
+  height: 390px;
+  max-width: 100%;
+  padding: 8px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .55);
+}
+
+.profile-avatar-large::before {
+  inset: -12px;
+}
+
+.profile-avatar-large[data-i]::after {
+  font-size: 90px;
+}
+
+.profile-number {
+  color: var(--dim);
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.profile-main h2 {
+  margin-top: 18px;
+  font-size: clamp(52px, 7vw, 100px);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -5px;
+}
+
+.profile-role {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 300;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+}
+
+.profile-description {
+  max-width: 530px;
+  margin-top: 25px;
+  color: var(--mut);
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.portfolio-link {
+  margin-top: 35px;
+  padding: 14px 22px;
+  display: inline-flex;
+  gap: 25px;
+  background: var(--grad);
+  color: #0c0c0c;
+  font-weight: 500;
+  border-radius: 50px;
+  font-size: 12px;
+  transition: transform .35s var(--ease), box-shadow .35s;
+}
+
+.portfolio-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, .12);
+}
+
+.portfolio-link[hidden] {
+  display: none;
+}
+
+/* --- Slide-up animation when the popup opens --- */
+.portfolio-overlay.active .profile-hero > *,
+.portfolio-overlay.active .profile-main > * {
+  animation: rise .8s var(--ease) both;
+}
+
+.portfolio-overlay.active .profile-main > *:nth-child(2) { animation-delay: .08s; }
+.portfolio-overlay.active .profile-main > *:nth-child(3) { animation-delay: .14s; }
+.portfolio-overlay.active .profile-main > *:nth-child(4) { animation-delay: .2s; }
+.portfolio-overlay.active .profile-main > *:nth-child(5) { animation-delay: .26s; }
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
+
+/* --- Lower part: About me, Work, Skills, Links --- */
+.profile-details {
+  border-top: 1px solid #1f1f1f;
+}
+
+.profile-section {
+  padding: 100px 0;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.large-text {
+  max-width: 850px;
+  margin-top: 30px;
+  color: #cfcfcf;
+  font-size: clamp(25px, 3vw, 40px);
+  line-height: 1.38;
+  letter-spacing: -1.5px;
+  font-weight: 300;
+}
+
+/* Selected work */
+.projects-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.project-card {
+  min-height: 220px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 25px;
+  transition: transform .45s var(--ease), border-color .35s, background .35s;
+}
+
+.project-number {
+  color: var(--dim);
+  font-size: 11px;
+}
+
+.project-info {
+  margin-top: auto;
+}
+
+.project-info h3 {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.project-info p {
+  margin-top: 6px;
+  color: var(--dim);
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.project-arrow {
+  margin-top: 15px;
+  align-self: flex-end;
+  color: var(--dim);
+  transition: transform .35s var(--ease), color .3s;
+}
+
+/* Only projects with a link (<a>) react to hover */
+a.project-card:hover {
+  transform: translateY(-6px);
+  background: #171717;
+  border-color: #3b3b3b;
+}
+
+a.project-card:hover .project-arrow {
+  color: #fff;
+  transform: translate(3px, -3px);
+}
+
+/* Skills */
+.skills {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.skill {
+  padding: 9px 16px;
+  border: 1px solid #2e2e2e;
+  border-radius: 50px;
+  color: #a8a8a8;
+  font-size: 12px;
+  transition: color .3s, border-color .3s, transform .3s var(--ease);
+}
+
+.skill:hover {
+  color: #fff;
+  border-color: #8c8c8c;
+  transform: translateY(-2px);
+}
+
+/* Links */
+.profile-links {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-links a {
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #202020;
+  color: #a8a8a8;
+  font-size: 14px;
+  transition: padding-left .4s var(--ease), color .3s;
+}
+
+.profile-links a:hover {
+  padding-left: 10px;
+  color: #fff;
+}
+
+/* Icon + text on the left side of each link */
+.link-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.link-label svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   11. TABLET LAYOUT (1100px and below)
+===================================================== */
+@media (max-width: 1100px) {
+  .about-grid {
+    gap: 60px;
+  }
+
+  .profile-hero {
+    gap: 50px;
+  }
+
+  .profile-avatar-large {
+    width: 330px;
+    height: 330px;
+  }
+}
+
+
+/* =====================================================
+   12. MOBILE LAYOUT (700px and below)
+===================================================== */
+@media (max-width: 700px) {
+
+  /* General */
+  .section,
+  footer,
+  .portfolio-container {
+    width: 90%;
+  }
+
+  /* Navbar: show hamburger, turn links into a dropdown */
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 5%;
+    right: 5%;
+    padding: 25px;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(15, 15, 15, .96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid #282828;
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity .35s var(--ease), transform .35s var(--ease), visibility .35s;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero h1 {
+    font-size: clamp(54px, 17vw, 85px);
+    letter-spacing: -3px;
+  }
+
+  .hero-quote {
+    margin-top: 30px;
+  }
+
+  .hero-buttons {
+    flex-wrap: wrap;
+  }
+
+  /* Members */
+  .members {
+    padding: 100px 0 120px;
+  }
+
+  .card-wrap {
+    flex-basis: 100%;
+    max-width: none;
+  }
+
+  .member-card {
+    height: 400px;
+  }
+
+  /* About */
+  .about {
+    padding: 110px 0 120px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-title h2 {
+    letter-spacing: -3px;
+  }
+
+  .about-content {
+    padding-top: 0;
+  }
+
+  /* Contact */
+  .contact {
+    min-height: 65vh;
+  }
+
+  .contact-content h2 {
+    letter-spacing: -4px;
+  }
+
+  /* Footer */
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  /* Profile popup */
+  .portfolio-container {
+    padding-top: 30px;
+  }
+
+  .profile-hero {
+    min-height: auto;
+    padding: 70px 0 90px;
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .profile-avatar-large {
+    width: min(300px, 85vw);
+    height: min(300px, 85vw);
+    margin: auto;
+  }
+
+  .profile-main {
+    text-align: center;
+  }
+
+  .profile-main h2 {
+    font-size: clamp(46px, 14vw, 80px);
+    letter-spacing: -3px;
+  }
+
+  .profile-role,
+  .profile-description {
+    margin-inline: auto;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-section {
+    padding: 70px 0;
+  }
+}
+
+
+/* =====================================================
+   13. REDUCED MOTION
+   Turns off animations for people who prefer less motion.
+===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
