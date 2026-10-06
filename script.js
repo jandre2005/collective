@@ -2,7 +2,7 @@ const members = [
   {
     name: "Rica Guevara",
     role: "Role",
-    image: "images/member1.jpg",
+    image: "images/profile1.jpg",
     description: "Role Description",
     about: "About you...",
     skills: ["HTML", "CSS", "JavaScript", "Responsive Design", "UI Design", "Java"],
@@ -19,7 +19,7 @@ const members = [
   {
     name: "Habib Hadjisaid",
     role: "Full-Stack Dev",
-    image: "images/profile2.JPG",
+    image: "images/profile2.jpg",
     description: "Builds modern full-stack products that feel polished on the frontend and stay reliable on the backend.",
     about: "A developer focused on building reliable, functional, and user-friendly full-stack web applications, turning ideas into practical digital experiences with modern technologies.",
     skills: ["JavaScript", "Java", "Next.js", "Tailwind CSS", "Node,js", "Socket.io", "REST APIs", "mySQL", "MongoDB", "Git", "Linux"],
@@ -35,7 +35,7 @@ const members = [
   {
     name: "Jandre Villanueva",
     role: "Front-End Dev",
-    image: "images/profile3.JPG",
+    image: "images/profile3.jpg",
     description: "Builds responsive, functional, and user-friendly web interfaces.",
     about: "A web designer and developer focused on creating clean, modern, and responsive websites. I enjoy turning ideas into simple and functional digital experiences.",
     skills: ["HTML", "CSS", "JavaScript", "Java", "MySQL", "Git", "Frontend Development", "UI/UX Design"],
@@ -51,7 +51,7 @@ const members = [
   {
     name: "Denzel Cordovez",
     role: "Role",
-    image: "images/member4.jpg",
+    image: "images/profile4.jpg",
     description: "Role Description",
     about: "A web developer and student at NU Manila, passionate about building clean, functional, and user-friendly websites that turn ideas into meaningful digital experiences.",
     skills: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "UI/UX Design", "Bootstrap/Git"],
@@ -67,7 +67,7 @@ const members = [
   {
     name: "Vin Santos",
     role: "Role",
-    image: "images/member5.jpg",
+    image: "images/profile5.jpg",
     description: "Role Description",
     about: "About you...",
     skills: ["Web Design", "HTML", "CSS", "Figma", "Creative Design"],
