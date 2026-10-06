@@ -1,15 +1,13 @@
 const members = [
   {
-    name: "Rica Guevara",
-    role: "Role",
+    name: "Rica Guevarra",
+    role: "Project Leader",
     image: "images/profile1.jpg",
-    description: "Role Description",
-    about: "About you...",
-    skills: ["HTML", "CSS", "JavaScript", "Responsive Design", "UI Design", "Java"],
+    description: "Responsible for leading the team, coordinating tasks, managing project progress, and ensuring effective collaboration to achieve project goals.",
+    about: "Passionate about leading teams and turning ideas into successful projects. Focused on organizing tasks, encouraging collaboration, and keeping development on track. Dedicated to creating a productive team environment where ideas are shared, challenges are solved, and project goals are achieved.",
+    skills: ["Project Management", "Google Workspace", "VS Code", "Git", "HTML", "CSS", "JavaScript", "Java"],
     projects: [
-      { title: "Project One", desc: "Personal or academic project.", url: "" },
-      { title: "Project Two", desc: "Personal or academic project.", url: "" },
-      { title: "Project Two", desc: "Personal or academic project.", url: "" }
+      { title: "...", desc: "....", url: "" },
     ],
     portfolio: "https://yourportfolio.com",
     github: "https://github.com/habib2005-hatdog",
@@ -36,7 +34,7 @@ const members = [
     name: "Jandre Villanueva",
     role: "Front-End Dev",
     image: "images/profile3.jpg",
-    description: "Builds responsive, functional, and user-friendly web interfaces.",
+    description: "Focused on creating clean, responsive, and interactive websites with an emphasis on modern design, smooth functionality, and user-friendly interfaces.",
     about: "A web designer and developer focused on creating clean, modern, and responsive websites. I enjoy turning ideas into simple and functional digital experiences.",
     skills: ["HTML", "CSS", "JavaScript", "Java", "MySQL", "Git", "Frontend Development", "UI/UX Design"],
     projects: [
@@ -50,36 +48,34 @@ const members = [
   },
   {
     name: "Denzel Cordovez",
-    role: "Role",
+    role: "Full-Stack Dev",
     image: "images/profile4.jpg",
-    description: "Role Description",
+    description: "Handles both front-end and back-end development, building reliable, scalable, and functional web applications with seamless system integration.",
     about: "A web developer and student at NU Manila, passionate about building clean, functional, and user-friendly websites that turn ideas into meaningful digital experiences.",
     skills: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "UI/UX Design", "Bootstrap/Git"],
     projects: [
       { title: "Sample Portfolio Site", desc: "A personal developer portfolio showcasing projects, skills, and experience. Built with PHP and a clean interface designed for simple navigation and easy content exploration.", url: "" },
       { title: "Shoevinir", desc: "A simple e-commerce website for browsing and purchasing footwear. Built with a clean product layout and easy navigation designed for a smooth online shopping experience.", url: "" },
     ],
-    portfolio: "https://example.com",
-    github: "https://github.com/",
+    portfolio: "https://portfolio-eight-roan-gm53i32gx0.vercel.app/?fbclid=IwY2xjawU0pGlleHRuA2FlbQIxMABwZG9mBWJyaWQRMWJ5eGlGQk1LVzhKbkl4blRzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEexU20qUishrDgxJC8anEBOop4jm9_XOB7vBNuqco4KNrDKGlEvDSwm5sZmew_aem_8bGWydEpQl9O9rm_dWanjA",
+    github: "github.com/denzelcordovez",
     linkedin: "linkedin.com/in/denzel-cordovez",
-    email: "denzelcordovez9@gmail.com"
+    email: "denzelcordovez26@gmail.com"
   },
   {
     name: "Vin Santos",
-    role: "Role",
+    role: "Front-End Dev",
     image: "images/profile5.jpg",
-    description: "Role Description",
-    about: "About you...",
-    skills: ["Web Design", "HTML", "CSS", "Figma", "Creative Design"],
+    description: "Creates visually appealing, responsive, and interactive web interfaces with a focus on modern design, seamless functionality, and an engaging user experience.",
+    about: "I'm passionate about front-end development and creating clean, responsive, and user-friendly websites. I enjoy exploring different layouts, experimenting with designs, and adding small details that make websites more interactive and visually appealing. My goal is to turn simple ideas into functional and engaging web experiences.",
+    skills: ["HTML", "CSS", "JavaScript", "Android Studio", "Networking", "Git"],
     projects: [
-      { title: "Brand Website", desc: "Minimal website with a clean layout.", url: "" },
-      { title: "Visual Concept", desc: "Layout and style exploration.", url: "" },
-      { title: "Portfolio Mockup", desc: "Early design for a personal portfolio.", url: "" }
+      { title: "VinGadgetPlug", desc: "A database-driven e-commerce website developed as an academic project, allowing users to browse and purchase gadgets and tech accessories. Features include product filtering, secure checkout, and admin management.", url: "" },
     ],
-    portfolio: "https://example.com",
-    github: "https://github.com/",
+    portfolio: "https://vin-portfolio-steel.vercel.app/",
+    github: "GitHub: VinLovesCoding",
     linkedin: "https://linkedin.com/",
-    email: "yourname@gmail.com"
+    email: "vinstephensantos07@gmail.com"
   }
 ];
 
