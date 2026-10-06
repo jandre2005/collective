@@ -320,6 +320,7 @@ function openProfile(index) {
   overlay.inert = false;
   overlay.setAttribute("aria-hidden", "false");
   overlay.classList.add("active");
+  history.pushState({ profileOpen: true }, "");
   document.body.classList.add("no-scroll");
   overlay.scrollTop = 0;
   $("closePortfolio").focus({ preventScroll: true });
@@ -332,7 +333,13 @@ function closeProfile() {
   overlay.inert = true;
   document.body.classList.remove("no-scroll");
 
-  if (lastFocusedElement) lastFocusedElement.focus({ preventScroll: true });
+  if (lastFocusedElement) {
+    lastFocusedElement.focus({ preventScroll: true });
+  }
+
+  if (history.state?.profileOpen) {
+    history.back();
+  }
 }
 
 // Both back buttons close the profile
@@ -347,5 +354,11 @@ document.addEventListener("keydown", event => {
     closeProfile();
   } else {
     setMenu(false);
+  }
+});
+
+window.addEventListener("popstate", () => {
+  if (overlay.classList.contains("active")) {
+    closeProfile();
   }
 });
