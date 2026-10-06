@@ -35,7 +35,7 @@ const members = [
   {
     name: "Jandre Villanueva",
     role: "Front-End Dev",
-    image: "images/profile1.JPG",
+    image: "images/profile3.JPG",
     description: "Builds responsive, functional, and user-friendly web interfaces.",
     about: "A web designer and developer focused on creating clean, modern, and responsive websites. I enjoy turning ideas into simple and functional digital experiences.",
     skills: ["HTML", "CSS", "JavaScript", "Java", "MySQL", "Git", "Frontend Development", "UI/UX Design"],
