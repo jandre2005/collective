@@ -7,7 +7,7 @@ const members = [
     about: "Passionate about leading teams and turning ideas into successful projects. Focused on organizing tasks, encouraging collaboration, and keeping development on track. Dedicated to creating a productive team environment where ideas are shared, challenges are solved, and project goals are achieved.",
     skills: ["Project Management", "Google Workspace", "VS Code", "Git", "HTML", "CSS", "JavaScript", "Java"],
     projects: [
-      { title: "...", desc: "....", url: "" },
+      { title: "On working project.", desc: "zzz...", url: "" },
     ],
     portfolio: "https://yourportfolio.com",
     github: "https://github.com/habib2005-hatdog",
@@ -57,9 +57,9 @@ const members = [
       { title: "Sample Portfolio Site", desc: "A personal developer portfolio showcasing projects, skills, and experience. Built with PHP and a clean interface designed for simple navigation and easy content exploration.", url: "" },
       { title: "Shoevinir", desc: "A simple e-commerce website for browsing and purchasing footwear. Built with a clean product layout and easy navigation designed for a smooth online shopping experience.", url: "" },
     ],
-    portfolio: "https://portfolio-eight-roan-gm53i32gx0.vercel.app/?fbclid=IwY2xjawU0pGlleHRuA2FlbQIxMABwZG9mBWJyaWQRMWJ5eGlGQk1LVzhKbkl4blRzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEexU20qUishrDgxJC8anEBOop4jm9_XOB7vBNuqco4KNrDKGlEvDSwm5sZmew_aem_8bGWydEpQl9O9rm_dWanjA",
-    github: "github.com/denzelcordovez",
-    linkedin: "linkedin.com/in/denzel-cordovez",
+    portfolio: "https://portfolio-eight-roan-gm53i32gx0.vercel.app/",
+    github: "https://github.com/maXss-tech",
+    linkedin: "https://www.linkedin.com/in/denzel-cordovez",
     email: "denzelcordovez26@gmail.com"
   },
   {
@@ -73,7 +73,7 @@ const members = [
       { title: "VinGadgetPlug", desc: "A database-driven e-commerce website developed as an academic project, allowing users to browse and purchase gadgets and tech accessories. Features include product filtering, secure checkout, and admin management.", url: "" },
     ],
     portfolio: "https://vin-portfolio-steel.vercel.app/",
-    github: "GitHub: VinLovesCoding",
+    github: "https://github.com/VinLovesCoding",
     linkedin: "https://linkedin.com/",
     email: "vinstephensantos07@gmail.com"
   }
