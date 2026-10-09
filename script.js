@@ -9,7 +9,7 @@ const members = [
     projects: [
       { title: "On working project.", desc: "zzz...", url: "" },
     ],
-    portfolio: "https://ricabumubum.vercel.app/",
+    portfolio: "https://ica-drab-three.vercel.app/",
     github: "https://github.com/habib2005-hatdog",
     linkedin: "https://linkedin.com/",
     email: "yourname@gmail.com",
